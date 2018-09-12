@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from flask import render_template
 from flask import flash
 from flask import redirect
@@ -10,9 +12,34 @@ from flask_login import login_required
 from werkzeug.urls import url_parse
 from app import app
 from app import db
+from app.forms import EditProfileForm
 from app.forms import LoginForm
 from app.forms import RegistrationForm
 from app.models import User
+
+
+@app.before_request
+def before_request():
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.utcnow()
+        db.session.commit()
+
+
+@app.route("/edit_profile", methods=["GET", "POST"])
+@login_required
+def edit_profile():
+    form = EditProfileForm()
+    if form.validate_on_submit():
+        current_user.username = form.username.data
+        current_user.about_me = form.about_me.data
+        db.session.commit()
+        flash("Your changes have been saved.")
+        return redirect(url_for("edit_profile"))
+    elif request.method == "GET":
+        form.username.data = current_user.username
+        form.about_me.data = current_user.about_me
+    return render_template("edit_profile.html", title="Edit Profile",
+                           form=form)
 
 
 @app.route('/user/<username>')
@@ -33,20 +60,24 @@ def index():
     user = {"username": "Evan"}
     posts = [
         {
-            "author": {"username": "Melissa"},
-            "body": "Beautiful day in Aurora!"
+            "author": {"username": "Rain"},
+            "body": "I precipitated."
         },
         {
-            "author": {"username": "Parker"},
-            "body": "I want applesauce and waffles, please. Now!"
+            "author": {"username": "River"},
+            "body": "I moved to lower ground."
         },
         {
-            "author": {"username": "Maddie"},
-            "body": "Pink Sky socks, please :)"
+            "author": {"username": "Lake"},
+            "body": "I tried to hold it all."
         },
         {
-            "author": {"username": "Jax"},
-            "body": "Throw the ball. Throw the ball. Was that the UPS truck?"
+            "author": {"username": "Vapor"},
+            "body": "I evaporated."
+        },
+        {
+            "author": {"username": "Cloud"},
+            "body": "I condensed and coalesced."
         }
     ]
     return render_template("index.html", title="Home", posts=posts)
