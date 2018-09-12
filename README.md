@@ -1,3 +1,3 @@
 # microblog
 Flask Mega 
-https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vi-profile-page-and-avatars
+https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-error-handling
