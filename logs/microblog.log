@@ -1,1 +1,37 @@
 2018-10-04 16:46:00,442 INFO: Microblog startup [in /Users/evansanford/Playground/LearnPython/FlaskMega/microblog/app/__init__.py:47]
+2018-10-04 19:12:53,387 INFO: Microblog startup [in /Users/evansanford/Playground/LearnPython/FlaskMega/microblog/app/__init__.py:47]
+2018-10-05 22:22:17,326 INFO: Microblog startup [in /Users/evansanford/Playground/LearnPython/FlaskMega/microblog/app/__init__.py:47]
+2018-10-05 22:23:14,282 INFO: Microblog startup [in /Users/evansanford/Playground/LearnPython/FlaskMega/microblog/app/__init__.py:47]
+2018-10-05 23:42:50,203 INFO: Microblog startup [in /Users/evansanford/Playground/LearnPython/FlaskMega/microblog/app/__init__.py:47]
+2018-10-05 23:43:08,748 ERROR: Exception on /edit_profile [POST] [in /anaconda3/lib/python3.6/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/anaconda3/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/anaconda3/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/anaconda3/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/evansanford/Playground/LearnPython/FlaskMega/microblog/app/routes.py", line 32, in edit_profile
+    if form.validate_on_submit():
+  File "/anaconda3/lib/python3.6/site-packages/flask_wtf/form.py", line 101, in validate_on_submit
+    return self.is_submitted() and self.validate()
+  File "/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 310, in validate
+    return super(Form, self).validate(extra)
+  File "/anaconda3/lib/python3.6/site-packages/wtforms/form.py", line 152, in validate
+    if not field.validate(self, extra):
+  File "/anaconda3/lib/python3.6/site-packages/wtforms/fields/core.py", line 206, in validate
+    stop_validation = self._run_validation_chain(form, chain)
+  File "/anaconda3/lib/python3.6/site-packages/wtforms/fields/core.py", line 226, in _run_validation_chain
+    validator(form, self)
+  File "/Users/evansanford/Playground/LearnPython/FlaskMega/microblog/app/forms.py", line 28, in validate_username
+    app.logger.info("{} needs to use a different username.".format(user))
+NameError: name 'app' is not defined
+2018-10-05 23:44:03,656 INFO: Microblog startup [in /Users/evansanford/Playground/LearnPython/FlaskMega/microblog/app/__init__.py:47]
