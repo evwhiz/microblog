@@ -35,3 +35,5 @@ Traceback (most recent call last):
     app.logger.info("{} needs to use a different username.".format(user))
 NameError: name 'app' is not defined
 2018-10-05 23:44:03,656 INFO: Microblog startup [in /Users/evansanford/Playground/LearnPython/FlaskMega/microblog/app/__init__.py:47]
+2018-10-28 22:04:38,446 INFO: Microblog startup [in /Users/evansanford/Playground/LearnPython/FlaskMega/microblog/app/__init__.py:47]
+2018-10-28 22:04:46,583 INFO: Microblog startup [in /Users/evansanford/Playground/LearnPython/FlaskMega/microblog/app/__init__.py:47]
